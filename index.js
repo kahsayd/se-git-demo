@@ -10,7 +10,7 @@ if (temperature > 25) {
 }
 
 /* For loop */
-const food = ["pizza", "pasta", "watermelon"];
+const food = ["🍉", "🍊", "🍌", "🥝", "🍅", "🍓", "🍒", "🍑"];
 
 /* For loop: Print items with index */
 for (let i = 0; i < food.length; i++) {
