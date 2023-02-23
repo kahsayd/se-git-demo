@@ -2,7 +2,7 @@
 FROM node:latest
 
 # Create server directory inside image
-WORKDIR /
+WORKDIR /app
 
 # Copy the source code
 COPY . .
