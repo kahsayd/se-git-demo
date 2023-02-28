@@ -5,16 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon -e js,pug,css --exec node index.js",
-    "build:docker": "docker build -t se-docker-express-pug .",
-    "start:docker": "docker run -d -p 3000:3000 se-docker-express-pug",
+    "dev": "nodemon -e js,css --exec node index.js",
+    "build:docker": "docker build -t se-demo .",
+    "start:docker": "docker run -d -p 3000:3000 se-demo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "pug": "^3.0.2"
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

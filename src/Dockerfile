@@ -4,10 +4,11 @@ FROM node:latest
 # Create server directory inside image
 WORKDIR /app
 
-# Copy the source code
+# Copy the source code (src -> /app)
+# node_modules directory is ignored via .dockerignore file
 COPY . .
 
-# Install dependencies
+# Install dependencies (inside the container)
 RUN npm install
 
 # Expose server port
