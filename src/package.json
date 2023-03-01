@@ -7,8 +7,6 @@
   "scripts": {
     "start": "node index.mjs",
     "dev": "nodemon -e js,mjs,css --exec node index.mjs",
-    "build:docker": "docker build -t se-demo .",
-    "start:docker": "docker run -d -p 3000:3000 se-demo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
