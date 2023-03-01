@@ -1,15 +1,13 @@
 /* Import dependencies */
-/* const express = require("express");
-const mysql = require("mysql2/promise"); */
-import express from "express";
-import mysql from "mysql2/promise";
+const express = require("express");
+const mysql = require("mysql2");
 
 /* Create express instance */
 const app = express();
 const port = 3000;
 
 /* Setup database connection */
-const db = await mysql.createConnection({
+const db = mysql.createConnection({
   host: process.env.DATABASE_HOST || "localhost",
   user: "user",
   password: "password",
@@ -27,9 +25,11 @@ app.get("/ping", (req, res) => {
 });
 
 // Returns an array of cities from the database
-app.get("/cities", async (req, res) => {
-  const [rows, fields] = await db.execute("SELECT * FROM `city`");
-  return res.send(rows);
+app.get("/cities", (req, res) => {
+  db.execute("SELECT * FROM `city`", (err, rows, fields) => {
+    console.log(`/cities: ${rows.length} rows`);
+    return res.send(rows);
+  });
 });
 
 // Run server!
