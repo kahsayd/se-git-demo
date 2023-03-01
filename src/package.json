@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.mjs",
     "dev": "nodemon -e js,mjs,css --exec node index.mjs",
