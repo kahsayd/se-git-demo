@@ -15,5 +15,7 @@ services:
 
   webserver:
     build: ./src
+    environment:
+      - DATABASE_HOST=database
     ports:
       - 3000:3000
