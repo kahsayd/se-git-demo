@@ -15,6 +15,9 @@ services:
 
   webserver:
     build: ./src
+    depends_on:
+      - database
+    restart: on-failure
     environment:
       - DATABASE_HOST=database
     ports:
