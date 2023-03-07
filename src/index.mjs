@@ -8,6 +8,12 @@ import mysql from "mysql2/promise";
 const app = express();
 const port = 3000;
 
+// Integrate Pug with Express
+app.set("view engine", "pug");
+
+// Serve assets from 'static' folder
+app.use(express.static("static"));
+
 console.log(process.env.NODE_ENV);
 
 /* Setup database connection */
@@ -26,6 +32,21 @@ app.get("/", (req, res) => {
 // Sample API route
 app.get("/ping", (req, res) => {
   res.send("pong");
+});
+
+// Landing route
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+// Gallery route
+app.get("/gallery", (req, res) => {
+  res.render("gallery");
+});
+
+// About route
+app.get("/about", (req, res) => {
+  res.render("about", { title: "Boring about page" });
 });
 
 // Returns an array of cities from the database
