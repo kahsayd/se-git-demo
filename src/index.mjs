@@ -18,7 +18,7 @@ console.log(process.env.NODE_ENV);
 
 /* Setup database connection */
 const db = await mysql.createConnection({
-  host: "localhost",
+  host: process.env.DATABASE_HOST || "localhost",
   user: "user",
   password: "password",
   database: "world",
