@@ -49,8 +49,19 @@ app.get("/about", (req, res) => {
   res.render("about", { title: "Boring about page" });
 });
 
-// Returns an array of cities from the database
 app.get("/cities", async (req, res) => {
+  try {
+    // Fetch cities from database
+    const [rows, fields] = await db.execute("SELECT * FROM `city`");
+    /* Render cities.pug with data passed as plain object */
+    return res.render("cities", { rows, fields });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+// Returns JSON array of cities
+app.get("/api/cities", async (req, res) => {
   const [rows, fields] = await db.execute("SELECT * FROM `city`");
   return res.send(rows);
 });
