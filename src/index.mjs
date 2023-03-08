@@ -26,7 +26,7 @@ const db = await mysql.createConnection({
 
 /* Landing route */
 app.get("/", (req, res) => {
-  res.send("Hello world!");
+  res.render("index");
 });
 
 // Sample API route
